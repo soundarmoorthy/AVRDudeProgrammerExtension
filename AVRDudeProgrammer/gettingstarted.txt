@@ -1,0 +1,4 @@
+1. Open a project in Atmel Studio.
+2. Build it.
+3. From Tools Menu Select AVR Dude Programmer
+4. Follow the instructions on screen and click "Program"

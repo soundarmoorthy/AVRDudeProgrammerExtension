@@ -1,0 +1,7 @@
+Version 1.0
+------------
+1. Ships avrdude 6.1 by default
+2. Support for avrdude invocation with command line arguments 
+3. Support for avrdude invocation with configuration file.
+4. Redirect avrdude console output to Studio Output Window.
+5. Link to AVR Dude options page.

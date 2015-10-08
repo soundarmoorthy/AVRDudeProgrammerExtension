@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="592d92-c782-43ef-8c29-f94c819f8078" Version="1.0" Language="en-US" Publisher="soundararajan dhakshinamoorthy" />
+    <DisplayName>AVRDude Programmer</DisplayName>
+    <Description xml:space="preserve">Allows you to use AVR Dude from within studio, Options to pass command line parameters, program hex files, view the output in Atmel Studio Output Window.</Description>
+    <MoreInfo>https://dhakshinamoorthy.wordpress.com/2015/10/08/avr-dude-programmer-extension-for-atmel-studio/</MoreInfo>
+    <License>license.txt</License>
+    <GettingStartedGuide>gettingstarted.txt</GettingStartedGuide>
+    <ReleaseNotes>releasenotes.txt</ReleaseNotes>
+    <Icon>favicon.ico</Icon>
+    <PreviewImage>AVRdude.png</PreviewImage>
+    <Tags>Atmel Studio, AVR Dude</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="AtmelStudio" Version="7.0" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" d:Source="Installed" Version="[14.0]" />
+  </Dependencies>
+  <Assets>
+  </Assets>
+</PackageManifest>
