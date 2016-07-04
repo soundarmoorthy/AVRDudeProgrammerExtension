@@ -82,8 +82,6 @@ namespace AtmelStudio.AVRDude.Wrapper
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-
             var ui = new AVRDudeUI();
             ui.Show();
         }

@@ -8,7 +8,6 @@
         {
             this.Message = msg;
             this.Error = error;
-
         }
     }
 }
