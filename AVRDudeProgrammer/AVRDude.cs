@@ -8,7 +8,6 @@ using System;
 using System.ComponentModel.Design;
 using System.Globalization;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 
 namespace AtmelStudio.AVRDude.Wrapper
 {
@@ -58,22 +57,12 @@ namespace AtmelStudio.AVRDude.Wrapper
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static AVRDude Instance
-        {
-            get;
-            private set;
-        }
+        public static AVRDude Instance { get; private set; }
 
         /// <summary>
         /// Gets the service provider from the owner package.
         /// </summary>
-        private IServiceProvider ServiceProvider
-        {
-            get
-            {
-                return this.package;
-            }
-        }
+        private IServiceProvider ServiceProvider => this.package;
 
         /// <summary>
         /// Initializes the singleton instance of the command.
@@ -94,11 +83,9 @@ namespace AtmelStudio.AVRDude.Wrapper
         private void MenuItemCallback(object sender, EventArgs e)
         {
             string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            string title = "AVRDude";
 
-            AVRDudeUI ui = new AVRDudeUI();
+            var ui = new AVRDudeUI();
             ui.Show();
-
         }
     }
 }

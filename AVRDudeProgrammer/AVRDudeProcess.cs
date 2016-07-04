@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AtmelStudio.AVRDude.Wrapper
 {
@@ -40,8 +37,7 @@ namespace AtmelStudio.AVRDude.Wrapper
 
         void Fire(AVRDudeOutputMessage msg)
         {
-            if (MessageReceived != null)
-                MessageReceived(null, msg);
+            MessageReceived?.Invoke(null, msg);
         }
 
         private void Process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
