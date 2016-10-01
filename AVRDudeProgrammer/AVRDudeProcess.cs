@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AtmelStudio.AVRDude.Wrapper
 {
@@ -11,7 +8,7 @@ namespace AtmelStudio.AVRDude.Wrapper
     {
         public event EventHandler<AVRDudeOutputMessage> MessageReceived;
              
-        AVRDudeProcessInfo info;
+        private readonly AVRDudeProcessInfo info;
         public AVRDudeProcessWrapper(AVRDudeProcessInfo info)
         {
             this.info = info;
@@ -38,10 +35,9 @@ namespace AtmelStudio.AVRDude.Wrapper
             Fire(new AVRDudeOutputMessage(e.Data, false));
         }
 
-        void Fire(AVRDudeOutputMessage msg)
+        private void Fire(AVRDudeOutputMessage msg)
         {
-            if (MessageReceived != null)
-                MessageReceived(null, msg);
+            MessageReceived?.Invoke(null, msg);
         }
 
         private void Process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
@@ -51,24 +47,18 @@ namespace AtmelStudio.AVRDude.Wrapper
 
         private Process GetProcess()
         {
-            var process = new Process();
-            var argument = GetArgument();
-            process.StartInfo = new ProcessStartInfo(info.FullPath, info.Args);
-            process.StartInfo.RedirectStandardError = true;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.StandardOutputEncoding = Encoding.UTF8;
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            var process = new Process
+            {
+                StartInfo = new ProcessStartInfo(info.FullPath, info.Args)
+                {
+                    RedirectStandardError = true,
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    StandardOutputEncoding = Encoding.UTF8,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                }
+            };
             return process;
-        }
-
-        private string GetArgument()
-        {
-            if (info.Mode == ArgumentMode.ConfFile)
-                return "-C " + info.ConfFile;
-            else
-                return info.Args;
-            
         }
     }
 }

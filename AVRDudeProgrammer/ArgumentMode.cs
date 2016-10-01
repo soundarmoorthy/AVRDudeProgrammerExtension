@@ -1,5 +1,4 @@
-﻿
-namespace AtmelStudio.AVRDude.Wrapper
+﻿namespace AtmelStudio.AVRDude.Wrapper
 {
-        public enum ArgumentMode {  CmdLine, ConfFile};
+    public enum ArgumentMode {  CmdLine, ConfFile };
 }
